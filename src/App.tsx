@@ -2,7 +2,8 @@ import "./App.css";
 import { useForm } from "react-hook-form";
 import { validationSchema } from "./utils/validationSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import Input from "./SearchInput";
+import SearchInput from "./SearchInput";
+import DebounceSearchInput from "./DebounceSearchInput";
 
 type LoginForm = {
   name: string;
@@ -50,7 +51,9 @@ function App() {
         </form>
       </div>
       <br />
-      <Input />
+      <SearchInput />
+      <br />
+      <DebounceSearchInput />
     </div>
   );
 }

@@ -62,18 +62,18 @@ function SearchInput() {
       });
   }, 500);
 
+  const onSubmit = (data: FormValues) => {
+    // console.log("data:", data);
+    // console.log("data.searchField:", data.searchField);
+    debouncedSearch(data.searchField);
+  };
+
   useEffect(() => {
     console.log("入力");
     if (searchFieldValue === "students") {
       handleSubmit(onSubmit)(); // 自動的にフォームを送信
     }
   }, [searchFieldValue, handleSubmit]);
-
-  const onSubmit = (data: FormValues) => {
-    console.log("data:", data);
-    console.log("data.searchField:", data.searchField);
-    debouncedSearch(data.searchField);
-  };
 
   return (
     <form>
@@ -86,7 +86,7 @@ function SearchInput() {
           <TextField
             {...field}
             autoComplete="off"
-            label="Example Field"
+            label="useWatch search input"
             variant="outlined"
             type="text"
             error={!!fieldState.error} // バリデーションエラーがある場合にエラー表示
